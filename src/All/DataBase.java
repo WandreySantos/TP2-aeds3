@@ -359,7 +359,7 @@ public class DataBase {
                     arq.seek(posGmae);
                     arq.readChar();
                     arq.writeInt(Jogoatual.length);
-                    arq.write(novoJogo);bbbbb
+                    arq.write(novoJogo);
                     System.out.println("Jogo atualizado com sucesso");
                 }else{
                     System.out.println("Jogo criado no fim do arquivo");
