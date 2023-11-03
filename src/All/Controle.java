@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class Controle {
     
     static Scanner scanner = new Scanner(System.in);
-
     public static void opcoes() {
         System.out.println("1 - Adicionar jogos");
         System.out.println("2 - Mostrar todos os jogos");
