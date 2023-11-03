@@ -85,12 +85,9 @@ public class Controle {
                         }
     }
     public static void SalvarArquivos(){
-        DataBase.SaveFormatado("C:\\Users\\Wandrey\\Desktop\\TP 1 "
-                                    +"Aeds3\\Dados\\Dados_Salvos.txt");
-        DataBase.SaveUsuario("C:\\Users\\Wandrey\\Desktop\\"
-                                    +"TP 1 Aeds3\\Dados\\Data_Base_Usuario.txt");
-        DataBase.SaveIndices("C:\\Users\\Wandrey\\Desktop\\"
-                                    +"TP 1 Aeds3\\Dados\\INDICE\\indices_Salvos.txt");
+        DataBase.SaveFormatado("Dados\\Dados_Salvos.txt");
+        DataBase.SaveUsuario("Dados\\Data_Base_Usuario.txt");
+        DataBase.SaveIndices("Dados\\INDICE\\indices_Salvos.txt");
     }
     public static void Compactar() {
         System.out.println("Dé o nome do arquivo");
@@ -166,7 +163,7 @@ public class Controle {
                         int IDrm = scanner.nextInt();
                         scanner.nextLine(); // Consumir a quebra de linha
                         DataBase.DeletGame(IDrm);
-                        SalvarArquivos();
+                        System.out.println("aQUI?");
                         break;
                     case 6:
                         Compactar();

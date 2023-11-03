@@ -9,19 +9,14 @@ import java.nio.file.Paths;
 import java.util.Random;
 import java.util.Scanner;
 
-/*
- * C FEITO 100%
- * R FEITO 100%
- * U LOAD  
- * D FEITO 100%
- */
+
 public class DataBase {
     
     static RandomAccessFile arq;
     static RandomAccessFile indices;
     static int contador;
-    static long ponteiroatual;
-    static long ponteiroAtualIndices;
+    static long ponteiroatual=4;
+    static long ponteiroAtualIndices=0;
     static Path DataDB;
     static Path indiceDB;
     static {
@@ -107,9 +102,7 @@ public class DataBase {
                     if (posIDStr.matches("\\d+") && IDStr.matches("\\d+")) {
                         long posID = Long.parseLong(posIDStr);
                         int ID = Integer.parseInt(IDStr);
-                        System.out.println(posID+" "+ID);
                         CriarIndices(posID, ID);
-                        System.out.println("FIZ 222");
                     } else {
                         System.err.println("Valor inválido encontrado na linha: " + trecho);
                     }
@@ -147,34 +140,34 @@ public class DataBase {
         byte[] byteArray;
         long PosID;
         try {
-            if(ponteiroatual==0) {
+            if (ponteiroatual == 0) {
                 arq.seek(4);
             }
-            // insere no arquivo
-            byteArray=jogo.toByteArray();
-             //Posição inicial do jogo pro indice
-            PosID=arq.getFilePointer();
-            //lapide
+            // insira no arquivo
+            byteArray = jogo.toByteArray();
+            // Posição inicial do jogo para o índice
+            PosID = ponteiroatual;
+            // lapide
             arq.writeChars("*");
-            //tamanho do objeto
+            // tamanho do objeto
             arq.writeInt(byteArray.length);
-        
-            //objeto 
+    
+            // objeto
             arq.write(byteArray);
             arq.writeChars(";");
-            ponteiroatual=arq.getFilePointer();
-            //alterando a quantidade de jogos no arquivo
-            contador+=1;
-            //INDICE
-            CriarIndices(PosID,jogo.getID());
+            ponteiroatual = arq.getFilePointer();
+            // alterando a quantidade de jogos no arquivo
+            contador += 1;
+            // ÍNDICE
+            CriarIndices(PosID, jogo.getID());
             arq.seek(0);
             arq.writeInt(contador);
             arq.seek(ponteiroatual);
-
         } catch (Exception e) {
-            // TODO: handle exception
+            e.printStackTrace();
         }
-    } 
+    }
+    
     private static void LerJogo(char x){
         Jogo jogo;
         try {
@@ -202,7 +195,7 @@ public class DataBase {
     
     //READ
     private static Jogo LerJogoParam(long aux) {
-        Jogo jogo = null;
+        Jogo jogo=null;
         try {
             arq.seek(aux);
             //lapide
@@ -256,13 +249,18 @@ public class DataBase {
             indices.seek(0);
             int x = indices.readInt();
             for (int i = 0; i < x; i++) {
-                long pontoInicial = indices.readLong(); // Obtenha o ponto inicial do registro atual
+                long pontoInicial =indices.getFilePointer();
+                long ponteiro = indices.readLong(); // Obtenha o ponto inicial do registro atual
                 if ( indices.readInt()== ID) {
                     System.out.println("Jogo encontrado :\n");
-                    InicioArq = pontoInicial; 
-                    break;
+                    System.out.println("Jogo na posição: "+ponteiro+" do arquivo");
+                    Jogo jogo=LerJogoParam(ponteiro);
+                    System.out.println(jogo);
+                    InicioArq = ponteiro; 
+                    return ponteiro;
                 } else {
                     //Pula pro proximo objeto (long + int + char)=14 bytes
+                    indices.seek(pontoInicial);
                     indices.skipBytes(14);
                 }
             }
@@ -286,10 +284,8 @@ public class DataBase {
                 //verificar se as Strings sao iguais
                 if(jogo.getNome().equals(nome)){
                     System.out.println("\nJogo encontrado :\n"+jogo);
-                    return; 
                 }
             }
-            System.out.println("Jogo nao encontrado");
         }catch (Exception e) {
             // TODO: handle exception
             System.out.println("eerro");
@@ -300,16 +296,14 @@ public class DataBase {
             //Le apartir do inicio
             indices.seek(0);
             int x=indices.readInt();
+            System.out.println("\nJogo encontrado :\n");
             for(int i=0;i<x;i++){
                 Jogo jogo= LerJogoParam(LerIndice());
                 //verificar se as Strings sao iguais
                 if(jogo.getPlataforma().equalsIgnoreCase(plataforma)){
-                    System.out.println("\nJogo encontrado :\n"+jogo);
-                    return; 
+                    System.out.println(jogo);
                 }
             }
-            System.out.println("Jogo nao encontrado");
-            return;
         }catch (Exception e) {
             // TODO: handle exception
             System.out.println("eerro");
@@ -320,16 +314,14 @@ public class DataBase {
             //Le apartir do inicio
             indices.seek(0);
             int x=indices.readInt();
+            System.out.println("\nJogo encontrado :\n");
             for(int i=0;i<x;i++){
                 Jogo jogo= LerJogoParam(LerIndice());
                 //verificar se as Strings sao iguais
                 if(jogo.getAno()==ano){
-                    System.out.println("\nJogo encontrado :\n"+jogo);
-                    return; 
+                    System.out.println(jogo);
                 }
             }
-            System.out.println("Jogo nao encontrado");
-            return;
         }catch (Exception e) {
             // TODO: handle exception
             System.out.println("eerro");
@@ -367,7 +359,7 @@ public class DataBase {
                     arq.seek(posGmae);
                     arq.readChar();
                     arq.writeInt(Jogoatual.length);
-                    arq.write(novoJogo);
+                    arq.write(novoJogo);bbbbb
                     System.out.println("Jogo atualizado com sucesso");
                 }else{
                     System.out.println("Jogo criado no fim do arquivo");
@@ -383,52 +375,36 @@ public class DataBase {
     //DELET
     public static boolean DeletGame(int ID) {
         try {
-            arq.seek(0);
-            int totalJogos = arq.readInt();
-            int jogosExcluidos = 0;
-    
-            for (int i = 0; i < totalJogos; i++) {
-                long posicaoAtual = arq.getFilePointer();
-                char lapide = arq.readChar();
-                if (lapide == '*') {
-                    //******************* */
-                    Jogo auxiliar = LerJogoParam(LerIndice());
-                    if (auxiliar.getID() == ID) {
-                        arq.seek(posicaoAtual);
-                        arq.writeChars("-");
-                        System.out.println(auxiliar+" (DELETADO)");
-                        break;
-                    }
-                } else {
-                    System.out.println("Nao encontrado");
-                }
+            long auxiliar=getID(ID);
+            if (auxiliar !=-1) {
+                arq.seek(auxiliar);
+                arq.writeChars("-");
+                System.out.println(auxiliar+" (DELETADO)");
+                return true;
+            }else{
+                System.out.println("Nao encontrado");
             }
-            // Atualize o contador total de jogos e o contador de jogos excluídos
-            arq.seek(0);
-            arq.writeInt(totalJogos);
-            arq.seek(ponteiroatual);
-            contador -= jogosExcluidos;
-    
-            return jogosExcluidos > 0;
         } catch (Exception e) {
             System.out.println("erro: " + e.getMessage());
         }
         return false;
-    }    
-
+    }
     //SALVAMENTO DE DADOS
     public static void SaveUsuario(String nomeArquivo) {
         PrintWriter writer = null;
         try {
             writer = new PrintWriter(new FileWriter(nomeArquivo));
             // Escreva o número total de jogos no arquivo
-            writer.println("Toal de jogo: "+contador);
-            
+            writer.println("Total de jogos: " + contador);
+    
             // Percorra todos os jogos no arquivo de dados
             indices.seek(4); // Pule o contador no início do arquivo
             for (int i = 0; i < contador; i++) {
-                Jogo jogo = LerJogoParam(LerIndice());
-                writer.println(jogo.toString());
+                long posID = LerIndice();
+                Jogo jogo = LerJogoParam(posID);
+                if (jogo != null) {
+                    writer.println(jogo.toString());
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -445,11 +421,24 @@ public class DataBase {
         try {
             writer = new PrintWriter(new FileWriter(nomeArquivo));
             // Percorra todos os jogos no arquivo de dados
-            indices.seek(4); // Pula o contador no início do arquivo
-            for (int i = 0; i < contador; i++) {
-                Jogo jogo = LerJogoParam(LerIndice());
-                // Escreva os dados do jogo no arquivo de texto
-                writer.println(jogo.getID() + ";" + jogo.getNome() + ";" + jogo.getPlataforma() + ";" + jogo.getAno());
+            indices.seek(0);
+            // pega a quantidade de jogos a serem lidos
+            int x=indices.readInt();
+            for (int i = 0; i < x; i++) {
+                // posição do jogo
+                long ponteiro=LerIndice();
+                //cria o jogo
+                Jogo jogo = LerJogoParam(ponteiro);
+                //seta o ponteiro no arquivo pra verficar a lapide
+                arq.seek(ponteiro);
+                if (arq.readChar() == '*') {
+                    // Escreva os dados do jogo no arquivo de texto
+                    writer.println(
+                            jogo.getID() 
+                    + ";" + jogo.getNome() 
+                    + ";" + jogo.getPlataforma() 
+                    +";"  + jogo.getAno());
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();

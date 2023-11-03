@@ -1,10 +1,6 @@
-6574191;Wii Sports;Wii;2006
-7218776;Super Mario Bros.;NES;1985
-7441093;Mario Kart Wii;Wii;2008
-6303965;Pokemon Red/Pokemon Blue;GB;1996
-7864450;Tetris;GB;1989
-8275308;New Super Mario Bros.;DS;2006
-6095903;Wii Play;Wii;2006
-6002502;New Super Mario Bros. Wii;Wii;2009
-7292918;Duck Hunt;NES;1984
-7721382;Nintendogs;DS;2005
+1677583;Wii Fit;Wii;2007
+1213460;Kinect Adventures!;X360;2010
+1039994;Grand Theft Auto V;PS3;2013
+1739295;Grand Theft Auto: San Andreas;PS2;2004
+1854901;Super Mario World;SNES;1990
+2752512;null;null;0

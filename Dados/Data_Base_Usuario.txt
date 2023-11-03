@@ -1,11 +1,7 @@
-Toal de jogo: 10
-ID: 6574191, Nome: Wii Sports, Plataforma: Wii, Ano: 2006
-ID: 7218776, Nome: Super Mario Bros., Plataforma: NES, Ano: 1985
-ID: 7441093, Nome: Mario Kart Wii, Plataforma: Wii, Ano: 2008
-ID: 6303965, Nome: Pokemon Red/Pokemon Blue, Plataforma: GB, Ano: 1996
-ID: 7864450, Nome: Tetris, Plataforma: GB, Ano: 1989
-ID: 8275308, Nome: New Super Mario Bros., Plataforma: DS, Ano: 2006
-ID: 6095903, Nome: Wii Play, Plataforma: Wii, Ano: 2006
-ID: 6002502, Nome: New Super Mario Bros. Wii, Plataforma: Wii, Ano: 2009
-ID: 7292918, Nome: Duck Hunt, Plataforma: NES, Ano: 1984
-ID: 7721382, Nome: Nintendogs, Plataforma: DS, Ano: 2005
+Total de jogos: 8
+ID: 1677583, Nome: Wii Fit, Plataforma: Wii, Ano: 2007
+ID: 1213460, Nome: Kinect Adventures!, Plataforma: X360, Ano: 2010
+ID: 1039994, Nome: Grand Theft Auto V, Plataforma: PS3, Ano: 2013
+ID: 1739295, Nome: Grand Theft Auto: San Andreas, Plataforma: PS2, Ano: 2004
+ID: 1854901, Nome: Super Mario World, Plataforma: SNES, Ano: 1990
+ID: 2752512, Nome: null, Plataforma: null, Ano: 0
