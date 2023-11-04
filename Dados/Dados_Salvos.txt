@@ -1,6 +1,13 @@
-1677583;Wii Fit;Wii;2007
-1213460;Kinect Adventures!;X360;2010
-1039994;Grand Theft Auto V;PS3;2013
-1739295;Grand Theft Auto: San Andreas;PS2;2004
-1854901;Super Mario World;SNES;1990
-2752512;null;null;0
+1076983;Duck Hunt;NES;1984
+1020731;Nintendogs;DS;2005
+1493841;Mario Kart DS;DS;2005
+1515170;Pokemon Gold/Pokemon Silver;GB;1999
+1250148;Wii Fit;Wii;2007
+1357133;kinecteee 2;XONE;2014
+1690033;Grand Theft Auto V;PS3;2013
+1038934;Grand Theft Auto: San Andreas;PS2;2004
+1594198;Super Mario World;SNES;1990
+1433158;Brain Age: Train Your Brain in Minutes a Day;DS;2005
+1035619;Pokemon Diamond/Pokemon Pearl;DS;2006
+1109311;Super Mario Land;GB;1989
+1742790;Super Mario Bros. 3;NES;1988

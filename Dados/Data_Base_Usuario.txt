@@ -1,7 +1,14 @@
-Total de jogos: 8
-ID: 1677583, Nome: Wii Fit, Plataforma: Wii, Ano: 2007
-ID: 1213460, Nome: Kinect Adventures!, Plataforma: X360, Ano: 2010
-ID: 1039994, Nome: Grand Theft Auto V, Plataforma: PS3, Ano: 2013
-ID: 1739295, Nome: Grand Theft Auto: San Andreas, Plataforma: PS2, Ano: 2004
-ID: 1854901, Nome: Super Mario World, Plataforma: SNES, Ano: 1990
-ID: 2752512, Nome: null, Plataforma: null, Ano: 0
+Total de jogos: 13
+ID: 1076983, Nome: Duck Hunt, Plataforma: NES, Ano: 1984
+ID: 1020731, Nome: Nintendogs, Plataforma: DS, Ano: 2005
+ID: 1493841, Nome: Mario Kart DS, Plataforma: DS, Ano: 2005
+ID: 1515170, Nome: Pokemon Gold/Pokemon Silver, Plataforma: GB, Ano: 1999
+ID: 1250148, Nome: Wii Fit, Plataforma: Wii, Ano: 2007
+ID: 1357133, Nome: kinecteee 2, Plataforma: XONE, Ano: 2014
+ID: 1690033, Nome: Grand Theft Auto V, Plataforma: PS3, Ano: 2013
+ID: 1038934, Nome: Grand Theft Auto: San Andreas, Plataforma: PS2, Ano: 2004
+ID: 1594198, Nome: Super Mario World, Plataforma: SNES, Ano: 1990
+ID: 1433158, Nome: Brain Age: Train Your Brain in Minutes a Day, Plataforma: DS, Ano: 2005
+ID: 1035619, Nome: Pokemon Diamond/Pokemon Pearl, Plataforma: DS, Ano: 2006
+ID: 1109311, Nome: Super Mario Land, Plataforma: GB, Ano: 1989
+ID: 1742790, Nome: Super Mario Bros. 3, Plataforma: NES, Ano: 1988

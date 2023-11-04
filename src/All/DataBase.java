@@ -140,29 +140,27 @@ public class DataBase {
         byte[] byteArray;
         long PosID;
         try {
-            if (ponteiroatual == 0) {
-                arq.seek(4);
-            }
+            contador += 1;
+            arq.seek(0);
+            arq.writeInt(contador);
             // insira no arquivo
             byteArray = jogo.toByteArray();
             // Posição inicial do jogo para o índice
             PosID = ponteiroatual;
+
+            arq.seek(ponteiroatual);
             // lapide
             arq.writeChars("*");
             // tamanho do objeto
             arq.writeInt(byteArray.length);
-    
+            
             // objeto
             arq.write(byteArray);
             arq.writeChars(";");
             ponteiroatual = arq.getFilePointer();
-            // alterando a quantidade de jogos no arquivo
-            contador += 1;
+            
             // ÍNDICE
             CriarIndices(PosID, jogo.getID());
-            arq.seek(0);
-            arq.writeInt(contador);
-            arq.seek(ponteiroatual);
         } catch (Exception e) {
             e.printStackTrace();
         }

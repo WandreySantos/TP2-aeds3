@@ -1,0 +1,12 @@
+1003730; The Legend of Zelda: Ocarina of Time; N64; 1998
+1209382; Halo: Combat Evolved; Xbox; 2001
+1432239; The Elder Scrolls V: Skyrim; PS3; 2011
+1039839; Super Mario 64; N64; 1996
+1540169; Minecraft; PC; 2011
+1458793; The Legend of Zelda: Breath of the Wild; Switch; 2017
+1267402; Red Dead Redemption 2; PS4; 2018
+1634527; Fortnite; Multiple; 2017
+1080341; Tetris; Multiple; 1984
+1427139; Call of Duty: Modern Warfare (2019); PS4; 2019
+1310629; The Witcher 3: Wild Hunt; PS4; 2015
+1012073; Sonic the Hedgehog; Genesis; 1991

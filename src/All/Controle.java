@@ -113,7 +113,9 @@ public class Controle {
         try {
             Path caminhoNovo = Paths.get("BASE 2.txt");
             Path caminhoAtual = Paths.get("Dados\\Dados_Salvos.txt");
+            Path teste = Paths.get("Dados\\teste.txt");
             Path caminhoAtualIndice = Paths.get("Dados\\INDICE\\indices_Salvos.txt");
+            
             //Mantem  a pasta .db sempre atualizada
             Path arquivoDataDB = Paths.get("Dados\\Data.db");
             Path arquivoIndiceDB = Paths.get("Dados\\INDICE\\Indices.db");
@@ -123,13 +125,15 @@ public class Controle {
                 Files.createFile(arquivoDataDB);
                 Files.createFile(arquivoIndiceDB);
 
-            System.out.println("1 - Caso queria resetar a DataBase\n2 - Para continuar ");
+            System.out.println("1 - Caso queria resetar a DataBase\n2 - Para continuar com base atual\n3 - Usar uma de testes ");
             int y=scanner.nextInt();
             if(y==1){
                 DataBase.CarregarDados(caminhoNovo);
-            }else{
+            }else if(y==2){
                 DataBase.CarregarDados(caminhoAtual);
                 DataBase.CarregarDadosIndice(caminhoAtualIndice);
+            }else{
+                DataBase.CarregarDados(teste);
             }
             int x = -1;
             while (x != 0) {
@@ -138,7 +142,6 @@ public class Controle {
                 System.out.print("\nDigite sua escolha: ");
                 x = scanner.nextInt();
                 scanner.nextLine(); // Consumir a quebra de linha
-                
                 switch (x) {
                     case 1:
                         AdiçãoDeJogos();
@@ -162,7 +165,7 @@ public class Controle {
                         int IDrm = scanner.nextInt();
                         scanner.nextLine(); // Consumir a quebra de linha
                         DataBase.DeletGame(IDrm);
-                        System.out.println("aQUI?");
+                        SalvarArquivos();
                         break;
                     case 6:
                         Compactar();
